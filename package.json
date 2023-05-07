@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon src --exec babel-node",
     "build": "babel src -d dist",
-    "start": "node dist"
+    "start": "node dist",
+    "production": "node ./build/index.js"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +25,8 @@
     "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.21.5",
     "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

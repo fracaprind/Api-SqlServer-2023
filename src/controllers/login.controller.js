@@ -25,6 +25,7 @@ export const postLogin = async (req, res) => {
         });
     };
 
+
     return res.json({
         erro: false,
         mensagem: "Login realizado com sucesso!",

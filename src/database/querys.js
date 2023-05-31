@@ -1,3 +1,3 @@
 export default{
-    getLogin: 'SELECT * FROM USUARIOS where Email = @Email'
+    getLogin: 'SELECT Email, Senha FROM USUARIOS where Email = @Email'
 }

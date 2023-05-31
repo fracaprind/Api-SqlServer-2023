@@ -4,7 +4,7 @@ export const getOrders = async (req, res) => {
 
     const pool = await getconnection()
     const result = await pool.request().query('SELECT * FROM PRODUCAO order BY PrazoEntrega DESC')
-    console.log(result)
+   // console.log(result)
 
     res.json(result.recordset)
 

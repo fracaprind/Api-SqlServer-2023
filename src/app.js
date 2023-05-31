@@ -6,6 +6,7 @@ import config from "./config";
 
 import clientsRoutes from './routes/clients.routes'
 import ordersRoutes from './routes/orders.routes'
+import loginRoutes from './routes/login.routes'
 
 const app = express();
 
@@ -21,5 +22,6 @@ app.use(express.json());
 // Routes
 app.use(clientsRoutes);
 app.use(ordersRoutes);
+app.use(loginRoutes);
 
 export default app;

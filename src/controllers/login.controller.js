@@ -22,7 +22,7 @@ export const postLogin = async (req, res) => {
         });
     };
 
-    if (senha !== user.Senha) {
+    if (senha !== user[0].Senha) {
         console.log(senha)
         console.log(user.senha)
 

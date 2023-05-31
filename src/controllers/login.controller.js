@@ -5,8 +5,8 @@ export const postLogin = async (req, res) => {
 
     const pool = await getconnection()
 
-    const senha = req.header.senha
-    const email = req.header.email
+    const senha = req.body.senha
+    const email = req.body.email
 
     console.log('Requisição : ',req.body)
 

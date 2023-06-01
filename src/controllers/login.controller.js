@@ -1,7 +1,9 @@
 import { getconnection } from '../database/connection'
 import querys from '../database/querys'
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export const postLogin = async (req, res) => {
 
@@ -23,8 +25,9 @@ export const postLogin = async (req, res) => {
             mensagem: "Erro: Usuário ou a senha incorretas!"
         });
     };
-
-    var token = jwt.sign({ id: user.IDUsuario }, process.env.SECRET, {
+    
+   // var token = jwt.sign({ id: user.IDUsuario }, process.env.SECRET, {
+    var token = jwt.sign({ id: user.IDUsuario }, '583a3549456251362c5a21314245576f', {
         //expiresIn: 60 // 10min
         expiresIn: '7d', // 7 dia
     });

@@ -1,5 +1,7 @@
 import { getconnection } from '../database/connection'
 import querys from '../database/querys'
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 export const postLogin = async (req, res) => {
 
@@ -22,6 +24,11 @@ export const postLogin = async (req, res) => {
         });
     };
 
+    var token = jwt.sign({ id: user.IDUsuario }, process.env.SECRET, {
+        //expiresIn: 60 // 10min
+        expiresIn: '7d', // 7 dia
+    });
+
     console.log('Senha recebida: ',senha)
     console.log('Senha banco', user.Senha)
 
@@ -39,7 +46,8 @@ export const postLogin = async (req, res) => {
     return res.json({
         erro: false,
         mensagem: "Login realizado com sucesso!",
-        user: { Email: user.Email }
+        user: { Email: user.Email, Usuario:user.Usuario , Nome:user.Nome, Setor: user.Setor},
+        token,
     });
     }else{
         return res.status(400).json({

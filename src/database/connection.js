@@ -18,9 +18,7 @@ const dbsettings = {
 export async function getconnection() {
     try {
         const pool = await sql.connect(dbsettings);
-        return pool
-        // const result = await pool.request().query("SELECT * from clientes");
-        // console.log(result);
+         return pool
     } catch (error) {
         console.log(error)
     }

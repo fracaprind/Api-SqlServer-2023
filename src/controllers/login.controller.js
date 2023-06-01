@@ -9,6 +9,9 @@ export const postLogin = async (req, res) => {
 
     const pool = await getconnection()
 
+    const senha = req.body.senha
+    const email = req.body.email
+
     if (senha == null) {
         return res.status(400).json({
             erro: true,
@@ -27,7 +30,7 @@ export const postLogin = async (req, res) => {
             mensagem: "Erro: Usuário ou a senha incorretas!"
         });
     };
-
+    
     if (senha !== user.Senha) {
         return res.status(400).json({
             erro: true,
@@ -36,8 +39,6 @@ export const postLogin = async (req, res) => {
     };
 
     if (senha === user.Senha ) {
- //   console.log('Senha: ',senha)
- //   console.log('Dados usuario retornado', user)
 
    // var token = jwt.sign({ id: user.IDUsuario }, process.env.SECRET, {
     var token = jwt.sign({ id: user.IDUsuario }, '583a3549456251362c5a21314245576f', {
@@ -51,6 +52,7 @@ export const postLogin = async (req, res) => {
         user: { IDUsuario: user.IDUsuario, Senha:user.Senha, Email: user.Email, Usuario:user.Usuario , Nome:user.Nome, Setor: user.Setor},
         token,
     });
+
     }else{
         return res.status(400).json({
             erro: true,

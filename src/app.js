@@ -7,6 +7,7 @@ import config from "./config";
 import loginRoutes from './routes/login.routes'
 import clientsRoutes from './routes/clients.routes'
 import ordersRoutes from './routes/orders.routes'
+import companyRoutes from './routes/company.routes'
 
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(loginRoutes);
 app.use(clientsRoutes);
 app.use(ordersRoutes);
+app.use(companyRoutes);
 
 
 export default app;

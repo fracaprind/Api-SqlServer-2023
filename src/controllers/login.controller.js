@@ -11,7 +11,7 @@ export const postLogin = async (req, res) => {
 
     const senha = req.body.senha
     const email = req.body.email
-console.log('Senha chegada: ',senha)
+
     if (senha == null) {
         return res.status(400).json({
             erro: true,

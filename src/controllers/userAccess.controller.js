@@ -1,7 +1,6 @@
 import { getconnection, querys } from '../database'
 
 export const getUserAccess = async (req, res) => {
-
     try {
         const idusuario = req.body.idusuario
         const acesso = req.body.acesso

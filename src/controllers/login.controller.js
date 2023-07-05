@@ -1,5 +1,4 @@
-import { getconnection } from '../database/connection'
-import querys from '../database/querys'
+import { getconnection, querys } from '../database'
 const jwt = require('jsonwebtoken');
 import * as dotenv from 'dotenv';
 

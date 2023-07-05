@@ -1,4 +1,8 @@
-export default{
+export const querys = {
+    getAllOrders:'SELECT * FROM PRODUCAO order BY PrazoEntrega DESC',
+    getAllCompanys:'SELECT * FROM EMPRESA order BY Empresa DESC',    
+    getAllUsers:'SELECT * FROM USUARIOS',
+    getAllClients:'SELECT * FROM CLIENTES',    
     getLogin: 'SELECT * FROM USUARIOS where Email = @Email',
     getUserAccess: 'SELECT * FROM ACESSOS where IDUsuario = @IDUsuario',
 }

@@ -1,11 +1,12 @@
-import { getconnection } from '../database/connection'
+import { getconnection, querys } from '../database'
 
 export const getCompanys = async (req, res) => {
-
-    const pool = await getconnection()
-    const result = await pool.request().query('SELECT * FROM EMPRESA order BY Empresa DESC')
-   // console.log(result)
-
-    res.json(result.recordset)
-
+    try {
+        const pool = await getconnection()
+        const result = await pool.request().query(querys.getAllCompanys)
+        res.json(result.recordset)
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
 }

@@ -4,5 +4,5 @@ export const querys = {
     getAllUsers:'SELECT * FROM USUARIOS',
     getAllClients:'SELECT * FROM CLIENTES',    
     getLogin: 'SELECT * FROM USUARIOS where Email = @Email',
-    getUserAccess: 'SELECT * FROM ACESSOS where IDUsuario = @IDUsuario',
+    getUserAccess: 'SELECT Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDUsuario = @IDUsuario and acesso = @Acesso',
 }

@@ -6,14 +6,13 @@ export const getUserAccess = async (req, res) => {
         const idusuario = req.body.idusuario
         const acesso = req.body.acesso
 
-        console.log(req.body)
-
         const pool = await getconnection()
         const result = await pool.request()
             .input("IDUsuario", idusuario)
+            .input("Acesso", acesso)
             .query(querys.getUserAccess)
         // console.log(result)
-        res.json(result.recordset)
+        res.json(result.recordset[0])
 
     } catch (error) {
         res.status(500);

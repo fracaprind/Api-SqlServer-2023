@@ -2,8 +2,9 @@ import { getconnection, querys } from '../database'
 
 export const getUsers = async (req, res) => {
     try {
-        const { page = 1 } = req.params
+        const { page = 1 } = req.params.page
         const limit = 20
+/*         console.log(req.params.page) */
 
         const pool = await getconnection()
         const result = await pool.request()
@@ -12,7 +13,7 @@ export const getUsers = async (req, res) => {
         .query(querys.getAllUsers)
         const Users = result.recordset
         var lastpage = 1
-
+/*          console.log(Users) */
         //Busca total de registros na tabela
         const countUser = await pool.request()
         .query(querys.getTotalUsers)
@@ -37,4 +38,44 @@ export const getUsers = async (req, res) => {
         res.status(500);
         res.send(error.message)
     }
+}
+
+export const getUserByID = async (req, res) => {
+    try {
+        const idusuario = req.body.idusuario
+
+        const pool = await getconnection()
+        const result = await pool.request()
+            .input("IDUsuario", idusuario)
+            .query(querys.getUserByID)
+        // console.log(result)
+        res.json(result.recordset[0])
+
+    } catch (error) {
+        res.status(500);
+        res.send(error.message)
+    }
+
+
+}
+
+export const getUserAccess = async (req, res) => {
+    try {
+        const idusuario = req.body.idusuario
+        const acesso = req.body.acesso
+
+        const pool = await getconnection()
+        const result = await pool.request()
+            .input("IDUsuario", idusuario)
+            .input("Acesso", acesso)
+            .query(querys.getUserAccess)
+        // console.log(result)
+        res.json(result.recordset[0])
+
+    } catch (error) {
+        res.status(500);
+        res.send(error.message)
+    }
+
+
 }

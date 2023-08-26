@@ -24,3 +24,5 @@ export async function getconnection() {
     }
 
 }
+
+export {sql};

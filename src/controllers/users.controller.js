@@ -2,9 +2,10 @@ import { getconnection, querys } from '../database'
 
 export const getUsers = async (req, res) => {
     try {
-        const { page = 1 } = req.params.page
-        const limit = 20
-/*         console.log(req.params.page) */
+        var page = req.params.page
+        const limit = 8
+/*         console.log("pagina: "+ page)
+        console.log("pagina params: "+ req.params.page)         */
 
         const pool = await getconnection()
         const result = await pool.request()
@@ -13,7 +14,7 @@ export const getUsers = async (req, res) => {
         .query(querys.getAllUsers)
         const Users = result.recordset
         var lastpage = 1
-/*          console.log(Users) */
+         // console.log(Users) 
         //Busca total de registros na tabela
         const countUser = await pool.request()
         .query(querys.getTotalUsers)
@@ -43,12 +44,12 @@ export const getUsers = async (req, res) => {
 export const getUserByID = async (req, res) => {
     try {
         const idusuario = req.body.idusuario
-
+        console.log("Aqui : " + req.body.idusuario)
         const pool = await getconnection()
         const result = await pool.request()
             .input("IDUsuario", idusuario)
             .query(querys.getUserByID)
-        // console.log(result)
+         console.log(result)
         res.json(result.recordset[0])
 
     } catch (error) {

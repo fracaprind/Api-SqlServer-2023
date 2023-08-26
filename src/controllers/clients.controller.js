@@ -1,4 +1,4 @@
-import { getconnection, querys } from '../database'
+import { getconnection, querys, sql } from '../database'
 
 export const getClients = async (req, res) => {
     try{
@@ -12,5 +12,16 @@ export const getClients = async (req, res) => {
 }
 
 export const createNewClient = async (req, res) => {
-    res.json('Novo cliente')
+const{nomerazao} = req.body
+console.log(nomerazao)
+
+if (nomerazao == null){
+    return res.status(400).json({msg:'Bad Request. Please fill all fields!'})
+}
+
+const pool = await getconnection();
+
+await pool.request().input("NomeRazao", sql.VarChar,"p").query('INSERT INTO Clientes (NomeRazao) VALUES (@nomerazao)')
+
+res.json('Novo cliente')
 }

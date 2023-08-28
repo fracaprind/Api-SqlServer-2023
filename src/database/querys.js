@@ -7,4 +7,5 @@ export const querys = {
     getLogin: 'SELECT * FROM USUARIOS where Email = @Email',
     getUserAccess: 'SELECT Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDUsuario = @IDUsuario and acesso = @Acesso',
     getUserByID: 'SELECT * from USUARIOS where IDUsuario = @IDUsuario',
+    deleteUserByID: 'DELETE from USUARIOS where IDUsuario = @IDUsuario',
 }

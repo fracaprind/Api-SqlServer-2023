@@ -4,8 +4,6 @@ export const getUsers = async (req, res) => {
     try {
         var page = req.params.page
         const limit = 8
-/*         console.log("pagina: "+ page)
-        console.log("pagina params: "+ req.params.page)         */
 
         const pool = await getconnection()
         const result = await pool.request()
@@ -14,7 +12,7 @@ export const getUsers = async (req, res) => {
         .query(querys.getAllUsers)
         const Users = result.recordset
         var lastpage = 1
-         // console.log(Users) 
+
         //Busca total de registros na tabela
         const countUser = await pool.request()
         .query(querys.getTotalUsers)
@@ -44,20 +42,16 @@ export const getUsers = async (req, res) => {
 export const getUserByID = async (req, res) => {
     try {
         const idusuario = req.body.idusuario
-        console.log("Aqui : " + req.body.idusuario)
         const pool = await getconnection()
         const result = await pool.request()
             .input("IDUsuario", idusuario)
             .query(querys.getUserByID)
-         console.log(result)
         res.json(result.recordset[0])
 
     } catch (error) {
         res.status(500);
         res.send(error.message)
     }
-
-
 }
 
 export const getUserAccess = async (req, res) => {
@@ -70,13 +64,26 @@ export const getUserAccess = async (req, res) => {
             .input("IDUsuario", idusuario)
             .input("Acesso", acesso)
             .query(querys.getUserAccess)
-        // console.log(result)
         res.json(result.recordset[0])
 
     } catch (error) {
         res.status(500);
         res.send(error.message)
     }
+}
 
+export const deleteUserByID = async (req, res) => {
+    try {
+        const idusuario = req.body.idusuario
+        const pool = await getconnection()
+        const result = await pool.request()
+            .input("IDUsuario", idusuario)
+            .query(querys.deleteUserByID)
+/*         res.json(result.recordset[0]) */
+        res.send("Usuario apagado com sucesso!")
 
+    } catch (error) {
+        res.status(500);
+        res.send(error.message)
+    }
 }

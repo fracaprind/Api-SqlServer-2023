@@ -8,4 +8,5 @@ export const querys = {
     getUserAccess: 'SELECT Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDUsuario = @IDUsuario and acesso = @Acesso',
     getUserByID: 'SELECT * from USUARIOS where IDUsuario = @IDUsuario',
     deleteUserByID: 'DELETE from USUARIOS where IDUsuario = @IDUsuario',
+    editUserByID:'UPDATE USUARIOS SET Usuario = @Usuario, Nome =@Nome, Setor = @Setor, Codigo = @Codigo, Email = @Email where IDUsuario = @IDUsuario',
 }

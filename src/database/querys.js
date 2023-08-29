@@ -9,4 +9,5 @@ export const querys = {
     getUserByID: 'SELECT * from USUARIOS where IDUsuario = @IDUsuario',
     deleteUserByID: 'DELETE from USUARIOS where IDUsuario = @IDUsuario',
     editUserByID:'UPDATE USUARIOS SET Usuario = @Usuario, Nome =@Nome, Setor = @Setor, Codigo = @Codigo, Email = @Email where IDUsuario = @IDUsuario',
+    newUser:'INSERT INTO USUARIOS (Usuario,Codigo,Nome,Setor,Email) values(@Usuario,@Codigo,@Nome,@setor,@email)' ,
 }

@@ -111,8 +111,31 @@ export const editUserByID = async (req, res) => {
              .query(querys.editUserByID)
             //.query( 'UPDATE USUARIOS SET Usuario = '+ usuario +', Nome ='+ nome +', Setor ='+ email +', Codigo = '+ codigo +', Email = '+ email +' where IDUsuario = ' + idusuario)            
            
-        res.send("Usuario modificado com sucesso!")
+        res.send(result + "Usuario modificado com sucesso!")
 
+    } catch (error) {
+        res.status(500);
+        res.send(error.message)
+    }
+}
+
+export const newUser = async (req, res) => {
+    try {
+        const codigo = req.body.codigo        
+        const usuario = req.body.usuario
+        const nome = req.body.nome
+        const setor = req.body.setor
+        const email = req.body.email
+
+        const pool = await getconnection()
+        const result = await pool.request()
+            .input("Codigo", codigo)
+            .input("Usuario", usuario)
+            .input("Nome", nome)
+            .input("Setor", setor)
+            .input("Email", email)            
+            .query(querys.newUser)
+            res.send("Usuario cadastrado com sucesso!")
     } catch (error) {
         res.status(500);
         res.send(error.message)

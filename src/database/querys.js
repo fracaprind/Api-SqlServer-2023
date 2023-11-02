@@ -1,7 +1,8 @@
 export const querys = {
     getAllOrders:'SELECT * FROM PRODUCAO order BY PrazoEntrega DESC',
     getAllCompanys:'SELECT * FROM EMPRESA order BY Empresa DESC',    
-    getAllUsers:'SELECT * FROM USUARIOS  ORDER BY NOME OFFSET (@Pagina - 1) * @QtdPorPagina ROWS FETCH NEXT @QtdPorPagina ROWS ONLY;',
+    // getAllUsers:'SELECT * FROM USUARIOS  ORDER BY NOME OFFSET (@Pagina - 1) * @QtdPorPagina ROWS FETCH NEXT @QtdPorPagina ROWS ONLY;',
+    getAllUsers:'SELECT * FROM USUARIOS  ORDER BY NOME;',
     getTotalUsers:'SELECT COUNT(USUARIO) AS TotalRegistros FROM USUARIOS',
     getAllClients:'SELECT * FROM CLIENTES',    
     getLogin: 'SELECT * FROM USUARIOS where Email = @Email',

@@ -2,16 +2,16 @@ import { getconnection, querys } from '../database'
 
 export const getUsers = async (req, res) => {
     try {
-        var page = req.params.page
-        const limit = 8
+/*         var page = req.params.page
+        const limit = 8 */
 
         const pool = await getconnection()
         const result = await pool.request()
-        .input("Pagina", page)
-        .input("QtdPorPagina", limit)
+/*         .input("Pagina", page)
+        .input("QtdPorPagina", limit) */
         .query(querys.getAllUsers)
         const Users = result.recordset
-        var lastpage = 1
+/*         var lastpage = 1 */
 
         //Busca total de registros na tabela
         const countUser = await pool.request()

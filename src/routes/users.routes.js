@@ -3,7 +3,8 @@ import { getUsers,getUserByID,getUserAccess,getUserAllAccess,deleteUserByID,edit
 
 const router = Router();
 
-router.get('/users/:page', getUsers)
+// router.get('/users/:page', getUsers)
+router.get('/users', getUsers)
 router.post('/userByID', getUserByID)
 router.post('/userAccess', getUserAccess)
 router.post('/userAllAccess', getUserAllAccess)

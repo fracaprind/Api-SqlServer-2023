@@ -54,7 +54,7 @@ export const getUserByID = async (req, res) => {
     }
 }
 
-export const getUserAlAccess = async (req, res) => {
+export const getUserAllAccess = async (req, res) => {
     try {
         const idusuario = req.body.idusuario
         const pool = await getconnection()

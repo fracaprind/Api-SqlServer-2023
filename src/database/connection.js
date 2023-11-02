@@ -3,7 +3,7 @@ import sql from "mssql";
 const dbsettings = {
     user: "procam",
     password: "PRO0902loc$?",
-    //server: "CAPRIND-01",
+    //server: "CAPRIND-03",
     server: "caprind.myftp.org",
     database: "PLE",
     trustServerCertificate: true,

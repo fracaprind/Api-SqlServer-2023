@@ -61,7 +61,7 @@ export const getUserAllAccess = async (req, res) => {
         const result = await pool.request()
             .input("IDUsuario", idusuario)
             .query(querys.getUserAllAccess)
-        res.json(result.recordset[0])
+        res.json(result.recordset)
 
     } catch (error) {
         res.status(500);

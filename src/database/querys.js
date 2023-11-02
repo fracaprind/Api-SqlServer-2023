@@ -5,6 +5,7 @@ export const querys = {
     getTotalUsers:'SELECT COUNT(USUARIO) AS TotalRegistros FROM USUARIOS',
     getAllClients:'SELECT * FROM CLIENTES',    
     getLogin: 'SELECT * FROM USUARIOS where Email = @Email',
+    getUserAllAccess: 'SELECT Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDUsuario = @IDUsuario',
     getUserAccess: 'SELECT Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDUsuario = @IDUsuario and acesso = @Acesso',
     getUserByID: 'SELECT * from USUARIOS where IDUsuario = @IDUsuario',
     deleteUserByID: 'DELETE from USUARIOS where IDUsuario = @IDUsuario',

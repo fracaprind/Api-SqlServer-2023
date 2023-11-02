@@ -54,6 +54,21 @@ export const getUserByID = async (req, res) => {
     }
 }
 
+export const getUserAlAccess = async (req, res) => {
+    try {
+        const idusuario = req.body.idusuario
+        const pool = await getconnection()
+        const result = await pool.request()
+            .input("IDUsuario", idusuario)
+            .query(querys.getUserAllAccess)
+        res.json(result.recordset[0])
+
+    } catch (error) {
+        res.status(500);
+        res.send(error.message)
+    }
+}
+
 export const getUserAccess = async (req, res) => {
     try {
         const idusuario = req.body.idusuario

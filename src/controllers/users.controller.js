@@ -11,8 +11,7 @@ export const getUsers = async (req, res) => {
         const Users = result.recordset
 
         res.json({
-            id:'1',
-            nome:'Francisco'
+            Users
         })
 
 

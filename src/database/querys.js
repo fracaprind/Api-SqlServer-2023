@@ -11,5 +11,5 @@ export const querys = {
     editUserByID: 'UPDATE USUARIOS SET Usuario = @Usuario, Nome =@Nome, Setor = @Setor, Codigo = @Codigo, Email = @Email where IDUsuario = @IDUsuario',
     newUser: 'INSERT INTO USUARIOS (Usuario,Codigo,Nome,Setor,Email) values(@Usuario,@Codigo,@Nome,@setor,@email)',
     getUserAllAccess: 'SELECT IDAcesso, Acesso, Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDUsuario = @IDUsuario order by Acesso',
-    getUserAccess: 'SELECT IDAcesso, Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDAcesso = @IDAcesso',
+    getUserAccess: 'SELECT IDAcesso,Acesso, Incluir, Alterar,Excluir,Validacao FROM ACESSOS where IDAcesso = @IDAcesso',
 }
